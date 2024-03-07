@@ -1,5 +1,10 @@
 import "./App.css";
 
+import { useFrame } from "@react-three/fiber";
+
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import {
   RoundedBox,
   ScrollControls,
@@ -12,11 +17,35 @@ import {
 
 import { Head } from "./components/Head";
 
+gsap.registerPlugin(useGSAP);
+
 function App() {
+
+  const title = useRef();
+
+  useGSAP(() => {
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: '.App',
+        start: "top",
+        end: "bottom",
+        markers: true,
+      },
+    })
+      .to(title.current, {
+        x: 1000,
+        duration: 2,
+        ease: "none",
+        color: "black",
+      })
+  }, []);
+
+
   return (
     <>
       <color attach="background" args={["#111111"]} />
       <ambientLight intensity={1} />
+
       <SpotLight
         position={[40, 20, 4]}
         angle={9.3}
@@ -25,17 +54,17 @@ function App() {
         intensity={1}
         shadow-bias={-0.0001}
       />
-      <Environment preset="warehouse" />
+      <Environment preset="sunset" />
       <ScrollControls pages={6} damping={0.1}>
         <Head scale={1.5} />
         <Scroll>
-          <Text
+          <Text ref={title}
             font="../public/Font/NeueMontreal-bold.otf"
             position={[0, 0, -1]}
             fontSize={1.5}
             color="white"
           >
-            SCROLL TO DISCOVER
+            "SCROLL TO DISCOVER"
           </Text>
         </Scroll>
         <Scroll html>

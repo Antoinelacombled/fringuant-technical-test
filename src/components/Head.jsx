@@ -26,17 +26,34 @@ export function Head(props) {
     });
 
     tl.current
+
       .to(char.current.rotation, { y: -1 }, 0)
       .to(char.current.position, { x: 1 }, 0)
 
+      .to(char.current.rotation, { y: 1 }, 1)
+      .to(char.current.position, { x: -1 }, 1)
+
       .to(char.current.rotation, { y: 1 }, 2)
-      .to(char.current.position, { x: -1 }, 2);
+      .to(char.current.position, { x: -1 }, 2)
+
+
+      .to(char.current.rotation, { y: 1 }, 4)
+      .to(char.current.rotation, { x: -1 }, 4)
+      .to(char.current.position, { x: -1 }, 4)
+
+      .to(char.current.rotation, { y: 1 }, 5)
+      .to(char.current.rotation, { x: 0 }, 5)
+
+      .to(char.current.rotation, { y: 7 }, 6)
+      .to(char.current.position, { x: 0 }, 6)
+
+
   }, []);
 
   const materialProps = useControls({
     thickness: { value: 0.85, min: 0, max: 3, step: 0.05 },
     roughness: { value: 0, min: 0, max: 1, step: 0.1 },
-    transmission: { value: 1, min: 0, max: 3, step: 0.1 },
+    transmission: { value: 0.8, min: 0, max: 3, step: 0.1 },
     ior: { value: 1.3, min: 0, max: 3, step: 0.1 },
     chromaticAberration: { value: 0.03, min: 0, max: 1 },
     backside: { value: true },
