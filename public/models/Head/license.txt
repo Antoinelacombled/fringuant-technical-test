@@ -1,0 +1,8 @@
+Model Information:
+* title:	Wrap around sunglasses
+* source:	https://sketchfab.com/3d-models/wrap-around-sunglasses-41ac9c4f9cba4d2b919f4609ec84e33e
+* author:	4145K4N (https://sketchfab.com/4145K4N)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works

@@ -8,18 +8,49 @@ Source: https://sketchfab.com/3d-models/cyberpunk-character-019f4b3fd3c74ed0bc6c
 Title: Cyberpunk character
 */
 
-import React, { useRef } from "react";
-import { useGLTF, useAnimations } from "@react-three/drei";
+import React, { useLayoutEffect, useRef } from "react";
+import { useGLTF, useScroll } from "@react-three/drei";
+import * as THREE from "three";
+import gsap from "gsap";
+import { useFrame } from "@react-three/fiber";
 
 export function Character(props) {
-  const group = useRef();
-  const { nodes, materials, animations } = useGLTF(
+  const char = useRef();
+  const scroll = useScroll();
+  const tl = useRef();
+
+  useFrame((state, delta) => {
+    tl.current.seek(scroll.offset * tl.current.duration());
+  });
+
+  useLayoutEffect(() => {
+    const box = new THREE.Box3().setFromObject(char.current);
+    const center = box.getCenter(new THREE.Vector3());
+
+    char.current.position.x += char.current.position.x - center.x;
+    char.current.position.y += char.current.position.y - center.y;
+    char.current.position.z += char.current.position.z - center.z;
+  }, []);
+
+  useLayoutEffect(() => {
+    tl.current = gsap.timeline({
+      defaults: { duration: 2, ease: "power1;inOut" },
+    });
+
+    tl.current
+      .to(char.current.rotation, { y: -0.1 }, 1)
+      .to(char.current.position, { x: 0.1 }, 1)
+
+      .to(char.current.rotation, { y: 1 }, 6)
+      .to(char.current.position, { x: -1 }, 6);
+  }, []);
+
+  const { nodes, materials } = useGLTF(
     "../../public/models/cyberpunk_characterglb-transformed.glb"
   );
-  const { actions } = useAnimations(animations, group);
   return (
-    <group ref={group} {...props} dispose={null}>
-      <group name="Sketchfab_Scene">
+    <group ref={char} {...props} dispose={null}>
+      <group position={[0, -1.5, -2.3]} name="Sketchfab_Scene">
         <primitive object={nodes._rootJoint} />
         <skinnedMesh
           name="Object_68"
