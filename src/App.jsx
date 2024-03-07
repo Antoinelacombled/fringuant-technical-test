@@ -28,7 +28,16 @@ function App() {
       <Environment preset="warehouse" />
       <ScrollControls pages={6} damping={0.1}>
         <Head scale={1.5} />
-        <Scroll></Scroll>
+        <Scroll>
+          <Text
+            font="../public/Font/NeueMontreal-bold.otf"
+            position={[0, 0, -1]}
+            fontSize={1.5}
+            color="white"
+          >
+            SCROLL TO DISCOVER
+          </Text>
+        </Scroll>
         <Scroll html>
           <h1
             className="h1"
@@ -38,9 +47,7 @@ function App() {
               left: "50%",
               fontSize: "15em",
             }}
-          >
-            Scroll to discover
-          </h1>
+          ></h1>
 
           <h1 style={{ color: "white", position: "absolute", top: "100vh" }}>
             second page
@@ -49,12 +56,6 @@ function App() {
             third page
           </h1>
         </Scroll>
-        <Text
-          font="../public/Font/NeueMontreal-bold.otf"
-          position={[0, 0, -1]}
-          fontSize={1.5}
-          color="white"
-        ></Text>
       </ScrollControls>
     </>
   );

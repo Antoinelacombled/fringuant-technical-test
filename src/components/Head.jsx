@@ -29,8 +29,8 @@ export function Head(props) {
       .to(char.current.rotation, { y: -1 }, 0)
       .to(char.current.position, { x: 1 }, 0)
 
-      .to(char.current.rotation, { y: 1 }, 3)
-      .to(char.current.position, { x: -1 }, 3);
+      .to(char.current.rotation, { y: 1 }, 2)
+      .to(char.current.position, { x: -1 }, 2);
   }, []);
 
   const materialProps = useControls({
