@@ -1,91 +1,45 @@
 import "./App.css";
-
-import { useFrame } from "@react-three/fiber";
-
-import { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 import {
-  RoundedBox,
   ScrollControls,
   Scroll,
-  SpotLight,
   Environment,
-  OrbitControls,
-  Text,
 } from "@react-three/drei";
-
 import { Head } from "./components/Head";
 
-gsap.registerPlugin(useGSAP);
+import Title from "./components/Title";
+import CardLeftSide from "./components/CardLeftSide/CardLeftSide";
+import CardRightSide from "./components/CardRightSide/CardRightSide";
+
+
 
 function App() {
-
-  const title = useRef();
-
-  useGSAP(() => {
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: '.App',
-        start: "top",
-        end: "bottom",
-        markers: true,
-      },
-    })
-      .to(title.current, {
-        x: 1000,
-        duration: 2,
-        ease: "none",
-        color: "black",
-      })
-  }, []);
-
 
   return (
     <>
       <color attach="background" args={["#111111"]} />
+      <directionalLight color="white" />
       <ambientLight intensity={1} />
-
-      <SpotLight
-        position={[40, 20, 4]}
-        angle={9.3}
-        penumbra={1}
-        castShadow
-        intensity={1}
-        shadow-bias={-0.0001}
-      />
-      <Environment preset="sunset" />
+      <Environment preset="warehouse" />
       <ScrollControls pages={6} damping={0.1}>
-        <Head scale={1.5} />
+        <Head scale={1.6} position-y={-0.5} />
         <Scroll>
-          <Text ref={title}
-            font="../public/Font/NeueMontreal-bold.otf"
-            position={[0, 0, -1]}
-            fontSize={1.5}
-            color="white"
-          >
-            "SCROLL TO DISCOVER"
-          </Text>
+          <Title />
         </Scroll>
-        <Scroll html>
+        <Scroll html style={{ width: "100%" }}>
+          <CardLeftSide />
+          <CardRightSide />
           <h1
             className="h1"
             style={{
               font: "../public/Font/NeueMontreal-Bold.otf",
-              top: "65vh",
-              left: "50%",
+              position: "relative",
+              top: "500vh",
               fontSize: "15em",
             }}
-          ></h1>
-
-          <h1 style={{ color: "white", position: "absolute", top: "100vh" }}>
-            second page
-          </h1>
-          <h1 style={{ color: "white", position: "absolute", top: "200vh" }}>
-            third page
-          </h1>
+          >fin (l)</h1>
         </Scroll>
-      </ScrollControls>
+      </ScrollControls >
+
     </>
   );
 }

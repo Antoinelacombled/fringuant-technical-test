@@ -7,6 +7,11 @@ import {
 import gsap from "gsap";
 import { useControls } from "leva";
 import { useFrame } from "@react-three/fiber";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(useGSAP);
+
 export function Head(props) {
   const { nodes, materials } = useGLTF(
     "../../public/models/Head/scene-transformed.glb"
@@ -16,38 +21,24 @@ export function Head(props) {
   const scroll = useScroll();
   const tl = useRef();
 
-  useFrame((state, delta) => {
+  useFrame(() => {
     tl.current.seek(scroll.offset * tl.current.duration());
   });
 
-  useLayoutEffect(() => {
+  useGSAP(() => {
     tl.current = gsap.timeline({
-      defaults: { duration: 1, ease: "power1.inOut" },
+      defaults: { duration: 1, ease: "power1.inOut", },
     });
-
     tl.current
-
       .to(char.current.rotation, { y: -1 }, 0)
       .to(char.current.position, { x: 1 }, 0)
-
       .to(char.current.rotation, { y: 1 }, 1)
+      .to(char.current.rotation, { x: -1 }, 1)
       .to(char.current.position, { x: -1 }, 1)
-
       .to(char.current.rotation, { y: 1 }, 2)
-      .to(char.current.position, { x: -1 }, 2)
-
-
-      .to(char.current.rotation, { y: 1 }, 4)
-      .to(char.current.rotation, { x: -1 }, 4)
-      .to(char.current.position, { x: -1 }, 4)
-
-      .to(char.current.rotation, { y: 1 }, 5)
-      .to(char.current.rotation, { x: 0 }, 5)
-
-      .to(char.current.rotation, { y: 7 }, 6)
-      .to(char.current.position, { x: 0 }, 6)
-
-
+      .to(char.current.rotation, { x: 0 }, 2)
+      .to(char.current.rotation, { y: 7 }, 3)
+      .to(char.current.position, { x: 0 }, 3)
   }, []);
 
   const materialProps = useControls({
