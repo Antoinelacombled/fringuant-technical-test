@@ -41,14 +41,14 @@ export function Head(props) {
       .to(char.current.position, { x: 0 }, 3)
   }, []);
 
-  const materialProps = useControls({
-    thickness: { value: 1.60, min: 0, max: 3, step: 0.05 },
-    roughness: { value: 0.2, min: 0, max: 1, step: 0.1 },
-    transmission: { value: 1, min: 0, max: 3, step: 0.1 },
-    ior: { value: 1.3, min: 0, max: 3, step: 0.1 },
-    chromaticAberration: { value: 0.03, min: 0, max: 1 },
-    backside: { value: true },
-  });
+  const materialProps = {
+    thickness: 1.60,
+    roughness: 0.2,
+    transmission: 1,
+    ior: 1.3,
+    chromaticAberration: 0.03,
+    backside: true,
+  };
 
   return (
     <group ref={char} {...props} dispose={null}>
