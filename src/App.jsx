@@ -9,6 +9,7 @@ import { Head } from "./components/Head";
 import Title from "./components/Title";
 import CardLeftSide from "./components/CardLeftSide/CardLeftSide";
 import CardRightSide from "./components/CardRightSide/CardRightSide";
+import LastTitle from "./components/LastTitle/LastTitle";
 
 
 
@@ -28,15 +29,7 @@ function App() {
         <Scroll html style={{ width: "100%" }}>
           <CardLeftSide />
           <CardRightSide />
-          <h1
-            className="h1"
-            style={{
-              font: "../public/Font/NeueMontreal-Bold.otf",
-              position: "relative",
-              top: "500vh",
-              fontSize: "15em",
-            }}
-          >fin (l)</h1>
+          <LastTitle />
         </Scroll>
       </ScrollControls >
 

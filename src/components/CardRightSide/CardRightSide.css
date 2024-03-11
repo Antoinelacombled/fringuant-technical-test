@@ -9,12 +9,18 @@
     gap: 20px;
 }
 
-
-
 .card-right-side {
     color: white;
     padding-right: 40px;
     box-sizing: border-box;
+}
+
+.card-right-side {
+    transition: margin-right 0.1s ease-in-out;
+}
+
+.card-right-side:hover {
+    margin-right: 50px;
 }
 
 .card-right-side.first .content-container {
@@ -74,4 +80,8 @@
 
 .third .content-container::after {
     background: linear-gradient(71deg, #210101, #623da3, #210101);
+}
+
+.content-description {
+    line-height: 2.5;
 }
