@@ -1,7 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400&display=swap');
+
 .last-title {
-    font-family: 'Neue Montreal Bold', sans-serif;
+    text-align: center;
     position: relative;
-    top: 500vh;
-    font-size: 15em;
+    top: 520vh;
+    width: 100%;
     color: white;
+}
+
+.last-title .big {
+    font-family: 'Playfair Display', serif;
+    font-size: 6em;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.last-title .small {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+    color: #FFFFFF;
+    margin-top: 0.5em;
+    letter-spacing: 0.05em;
 }

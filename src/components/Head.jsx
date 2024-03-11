@@ -42,9 +42,9 @@ export function Head(props) {
   }, []);
 
   const materialProps = useControls({
-    thickness: { value: 0.85, min: 0, max: 3, step: 0.05 },
-    roughness: { value: 0, min: 0, max: 1, step: 0.1 },
-    transmission: { value: 0.8, min: 0, max: 3, step: 0.1 },
+    thickness: { value: 1.60, min: 0, max: 3, step: 0.05 },
+    roughness: { value: 0.2, min: 0, max: 1, step: 0.1 },
+    transmission: { value: 1, min: 0, max: 3, step: 0.1 },
     ior: { value: 1.3, min: 0, max: 3, step: 0.1 },
     chromaticAberration: { value: 0.03, min: 0, max: 1 },
     backside: { value: true },

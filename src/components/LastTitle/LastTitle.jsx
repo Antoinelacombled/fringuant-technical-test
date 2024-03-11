@@ -16,7 +16,6 @@ function LastTitle() {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
-
                     b.start();
                     b.reveal(4000);
                 }
@@ -40,8 +39,8 @@ function LastTitle() {
 
     return (
         <div ref={titleRef} className="last-title">
-            <h1>"MADE WITH LOVE"</h1>
-            <h4>by Antoine Lacombled</h4>
+            <h1 className='last-title big'>"Aesthetic Fashion Experience" </h1>
+            <h4 className='last-title small'>Created by Antoine Lacombled</h4>
         </div>
     );
 }
