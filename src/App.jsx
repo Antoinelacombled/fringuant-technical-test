@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import {
+  ScrollControls,
+  Scroll,
+  Environment,
+} from "@react-three/drei";
+import { Head } from "./components/Head";
+import Title from "./components/Title";
+import CardLeftSide from "./components/CardLeftSide/CardLeftSide";
+import CardRightSide from "./components/CardRightSide/CardRightSide";
+import LastTitle from "./components/LastTitle/LastTitle";
+import Header from "./components/Header/Header";
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <color attach="background" args={["#111111"]} />
+      <directionalLight color="black" />
+      <ambientLight intensity={1} />
+      <Environment preset="warehouse" />
+      <ScrollControls pages={6} damping={0.1}>
+        <Head scale={1.6} position-y={-0.5} />
+        <Scroll>
+          <Header />
+          <Title />
+        </Scroll>
+        <Scroll html style={{ width: "100%" }}>
+          <CardLeftSide />
+          <CardRightSide />
+          <LastTitle />
+        </Scroll>
+      </ScrollControls>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

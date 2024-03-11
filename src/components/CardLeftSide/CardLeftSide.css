@@ -1,0 +1,48 @@
+.card-container {
+    position: fixed;
+    top: 125vh;
+    left: 10%;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 10;
+    border: 10px solid red;
+}
+
+.card-top,
+.card-bottom {
+    position: fixed;
+    width: 350px;
+    height: 500px;
+    left: 10%;
+    background-size: cover;
+    background-position: center;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-top {
+    top: 130vh;
+    background-image: url('../../assets/Bal-ok.jpg');
+    z-index: 11;
+    left: 215px;
+}
+
+.card-bottom {
+    top: 103vh;
+    background-image: url('../../assets/Bal-ok-two.jpg');
+
+}
+
+.container-card-left {
+    position: absolute;
+    z-index: 99999;
+}

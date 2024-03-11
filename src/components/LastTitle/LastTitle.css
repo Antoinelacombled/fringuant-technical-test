@@ -1,0 +1,22 @@
+.last-title {
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    position: relative;
+    top: 520vh;
+    width: 100%;
+    color: white;
+}
+
+.last-title .big {
+    font-size: 6em;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.last-title .small {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5em;
+    color: #FFFFFF;
+    margin-top: 0.5em;
+    letter-spacing: 0.05em;
+}
