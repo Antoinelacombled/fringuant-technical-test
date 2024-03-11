@@ -1,42 +1,36 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { Text } from "@react-three/drei";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import ScrollTrigger from "gsap/ScrollTrigger";
-
-import "../../src/Title.css";
-
-
-gsap.registerPlugin(useGSAP);
-gsap.registerPlugin(ScrollTrigger);
 
 function Title() {
-
-    const groupRef = useRef();
     const textRef = useRef();
 
-
-    // const tl = gsap.timeline({
-    //     scrollTrigger: {
-    //         trigger: groupRef.current,
-    //     }
-    // });
-
     useGSAP(() => {
-        gsap.to(textRef.current, { color: "black", duration: 3, yoyo: true, repeat: -1 })
-    }, { scope: groupRef });
+        gsap.to(textRef.current, { color: "black", duration: 2.5, yoyo: true, repeat: -1 })
+    }, {});
+
+    useEffect(() => {
+        const width = 20;
+        gsap.to(textRef.current.position, {
+            x: -width,
+            ease: "none",
+            duration: 10,
+            repeat: -1,
+        });
+    }, []);
 
     return (
-        <group ref={groupRef}>
-            <Text ref={textRef}
-                font="../public/Font/NeueMontreal-bold.otf"
-                position={[0, 0, -1]}
-                fontSize={1.3}
-                color="white"
-            >
-                "SCROLL TO DISCOVER"
-            </Text>
-        </group>
+        <Text ref={textRef}
+            font="../public/Font/NeueMontreal-bold.otf"
+            position={[8, 0, -1]}
+            fontSize={1.3}
+            color="white"
+            anchorX="left"
+            anchorY="middle"
+        >
+            "SCROLL TO DISCOVER"
+        </Text>
     );
 }
 
