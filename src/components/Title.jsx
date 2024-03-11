@@ -10,7 +10,7 @@ function Title() {
         gsap.to(textRef.current, { color: "black", duration: 2.5, yoyo: true, repeat: -1 })
     }, {});
 
-    useEffect(() => {
+    useGSAP(() => {
         const width = 20;
         gsap.to(textRef.current.position, {
             x: -width,
@@ -18,7 +18,7 @@ function Title() {
             duration: 10,
             repeat: -1,
         });
-    }, []);
+    }, {});
 
     return (
         <Text ref={textRef}

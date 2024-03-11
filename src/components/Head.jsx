@@ -1,11 +1,10 @@
-import React, { useLayoutEffect, useRef } from "react";
+import React, { useRef } from "react";
 import {
   useGLTF,
   useScroll,
   MeshTransmissionMaterial,
 } from "@react-three/drei";
 import gsap from "gsap";
-import { useControls } from "leva";
 import { useFrame } from "@react-three/fiber";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";

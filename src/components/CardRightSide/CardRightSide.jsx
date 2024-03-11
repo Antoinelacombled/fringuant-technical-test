@@ -1,6 +1,5 @@
 import "./CardRightSide.css";
 
-
 function CardRightSide() {
     return (
         <div className='cards-container'>

@@ -3,8 +3,8 @@ import baffle from 'baffle';
 import "./LastTitle.css";
 
 function LastTitle() {
-    const titleRef = useRef(null);
-    const [baffleEffect, setBaffleEffect] = useState(null);
+    const titleRef = useRef();
+    const [baffleEffect, setBaffleEffect] = useState();
 
     useEffect(() => {
         const b = baffle(titleRef.current, {

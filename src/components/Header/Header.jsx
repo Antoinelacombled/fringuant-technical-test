@@ -1,17 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Text } from "@react-three/drei";
+import { obfuscateText } from "../../utils/obfuscate-text";
 
 function Header() {
     const originalText = "Antoine Lacombled";
     const [displayText, setDisplayText] = useState(originalText);
-    const revealTimeout = useRef(null);
-    const obfuscationTimeout = useRef(null);
-
-    const obfuscateText = (text) => {
-        return text.split('').map(() => {
-            return Math.random() < 0.5 ? originalText.charAt(Math.floor(Math.random() * originalText.length)) : '█▓$░'[Math.floor(Math.random() * 4)];
-        }).join('');
-    };
+    const revealTimeout = useRef();
+    const obfuscationTimeout = useRef();
 
     useEffect(() => {
         obfuscationTimeout.current = setInterval(() => {
@@ -21,7 +16,7 @@ function Header() {
         revealTimeout.current = setTimeout(() => {
             clearInterval(obfuscationTimeout.current);
             setDisplayText(originalText);
-        }, 8000);
+        }, 7000);
 
         return () => {
             clearInterval(obfuscationTimeout.current);
