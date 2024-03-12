@@ -87,4 +87,4 @@ export function Head(props) {
   );
 }
 
-useGLTF.preload("../../public/models/Head/scene-transformed.glb");
+useGLTF.preload("../../scene-transformed.glb");
