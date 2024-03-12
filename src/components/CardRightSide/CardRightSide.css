@@ -85,3 +85,9 @@
 .content-description {
     line-height: 2.5;
 }
+
+@media (max-width: 768px) {
+    .card-right-side {
+        padding: .6rem;
+    }
+}

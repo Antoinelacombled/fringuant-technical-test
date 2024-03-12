@@ -49,3 +49,13 @@
     position: absolute;
     z-index: 99999;
 }
+
+@media (max-width: 768px) {
+
+    .card-top,
+    .card-bottom {
+        width: 200px;
+        height: 290px;
+    }
+
+}
