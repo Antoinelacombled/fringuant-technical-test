@@ -22,7 +22,7 @@ function Title() {
 
     return (
         <Text ref={textRef}
-            font="../public/NeueMontreal-bold.otf"
+            font="../../../public/NeueMontreal-Bold.OTF"
             position={[8, 0, -1]}
             fontSize={1.3}
             color="white"
