@@ -39,7 +39,7 @@ function LastTitle() {
 
     return (
         <div ref={titleRef} className="last-title">
-            <h1 className='last-title big'>"Aesthetic Fashion Experience" </h1>
+            <h1 className='last-title big'>"Aesthetic 3D Head"</h1>
             <h4 className='last-title small'>Created by Antoine Lacombled</h4>
         </div>
     );
