@@ -26,7 +26,7 @@ function Header() {
 
     return (
         <Text
-            font="../../../public/NeueMontreal-Bold.OTF"
+            font="../../../NeueMontreal-Bold.OTF"
             position={[0, 4, -1]}
             fontSize={0.3}
         >
