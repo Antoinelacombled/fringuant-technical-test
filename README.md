@@ -2,6 +2,8 @@
 
 This website is a technical demonstration for Fringuant, a startup offering personalized and customized solutions for accurately determining clothing sizes during online shopping. The project aimed to create a web experience featuring a 3D human silhouette that reacts to webpage scrolling by rotating on its axis. The design needed to be creative and align with the fashion theme.
 
+#### You can access the website right here : https://fringuant-technical-test.netlify.app/
+
 ### Project Initialization:
 To get started with the project, follow these steps:
 * Clone the repository to your local machine.
