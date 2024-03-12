@@ -13,7 +13,7 @@ gsap.registerPlugin(useGSAP);
 
 export function Head(props) {
   const { nodes, materials } = useGLTF(
-    "../../public/models/Head/scene-transformed.glb"
+    "../../scene-transformed.glb"
   );
 
   const char = useRef();
@@ -87,4 +87,4 @@ export function Head(props) {
   );
 }
 
-useGLTF.preload("../../public/models/Head/scene-transformed.glb");
+useGLTF.preload("../../scene-transformed.glb");
